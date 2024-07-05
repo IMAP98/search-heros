@@ -1,5 +1,6 @@
 import { types } from "../../types/types";
 
+// ! IMPORTANT: The reducers should not call an external functionallity (localStorage, axios, fetchAPI, etc). They must work only with the args (state & action)
 
 export const authReducer = (state = {}, action) => {
 
@@ -9,7 +10,7 @@ export const authReducer = (state = {}, action) => {
             return {
                 ...state,
                 logged: true,
-                name: action.payload
+                user: action.payload
             };
 
         case types.logout:
